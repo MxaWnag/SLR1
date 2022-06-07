@@ -1,0 +1,14 @@
+program->compounds
+stmt->ifs|whles|assgs|compounds
+compounds->{ stms }
+stms->stmt stms|@
+ifs->if ( boolexpr ) then stmt else stmt
+whles->while ( boolexpr ) stmt
+assgs->ID = arithexpr ;
+boolexpr->arithexpr boolop arithexpr
+boolop-><|>|<=|>=|==
+arithexpr->multexpr arithprime
+arithprime->+ multexpr arithprime|- multexpr arithprime|@
+multexpr->simpleexpr multprime
+multprime->* simpleexpr multprime|/ simpleexpr multprime|@
+simpleexpr->ID|NUM|( arithexpr )
